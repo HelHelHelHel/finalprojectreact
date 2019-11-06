@@ -24,5 +24,5 @@ const mapStyles = {
   }
   
   export default GoogleApiWrapper({
-    apiKey: 'AIzaSyCdWaaJdA2vNPKHCJlErt7c5PKktVn2ro8'
+    apiKey: 'add google key'
   })(MapContainer);
