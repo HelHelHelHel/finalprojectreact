@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import { googleKey } from '../../key.js';
 const mapStyles = {
     width: '100%',
@@ -7,6 +7,14 @@ const mapStyles = {
   };
   
   export class MapContainer extends Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          showingInfoWindow: false,  //Hides or the shows the infoWindow
+          activeMarker: {},          //Shows the active marker upon click
+          selectedPlace: {}          //Shows the infoWindow to the selected place upon a marker
+        };
+      }
     render() {
       return (
         <Map
