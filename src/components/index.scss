@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 .homepage{
     display: flex;
     flex-direction: row;
@@ -9,6 +12,57 @@
     width: 20vw;
     align-items: center;
     justify-content: center;
+}
+
+.profile{
+    width: 35vw;
+}
+
+.picture{
+    width: 5rem;
+    height: 5rem;
+    background-color: grey;
+}
+
+.userInfo{
+    display: flex;
+    flex-direction: row;
+}
+
+.userName{
+    font-size: 1.5rem;
+    text-align: center;
+    padding-left: 5rem;
+}
+
+.recommendedCard{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.cardBig{
+    width: 8rem;
+    text-align: center;
+    border: solid 0.1rem black;
+    
+    h5{
+        margin: 0rem;
+    }
+    p{
+        margin: 0rem;
+    }
+}
+.reviewCard{
+    width: 8rem;
+    text-align: center;
+    border: solid 0.1rem grey;
+    
+    .dishImg{
+    width: 6rem;
+    height: 5rem;
+    }
+
 }
 
 
