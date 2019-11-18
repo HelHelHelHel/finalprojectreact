@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import DishCard from '../Dish/DishCard.jsx'
+import DishSlider from '../Dish/DishesSlider.jsx';
 
 const RestaurantCard = props => {
     const [restaurants, setRestaurants] = useState();
@@ -36,7 +37,7 @@ const RestaurantCard = props => {
                            </p>
                        </div>
                        <div className="card-body">
-                           <DishCard id={restaurant.id}/>
+                           <DishSlider id={restaurant.id}/>
                        </div>
                    </div>
                ))

@@ -14,7 +14,6 @@ const App = () =>  {
                <Router history={history}>
                     <Nav/>
                     <Switch>
-                        
                             <Route path = '/map' component={MapContainer} />
                             <Route path = '/restaurants' component={RestaurantCard} />
                     </Switch>

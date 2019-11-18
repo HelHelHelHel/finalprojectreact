@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 import ReviewCard from '../Review/ReviewCard.jsx'
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+
 const DishCard = props => {
     const [dishes, setDishes] = useState()
 

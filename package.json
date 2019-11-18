@@ -37,6 +37,8 @@
     "google-maps-react": "^2.0.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-router-dom": "^5.1.2"
+    "react-router-dom": "^5.1.2",
+    "react-slick": "^0.25.2",
+    "slick-carousel": "^1.8.1"
   }
 }
