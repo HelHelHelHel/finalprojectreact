@@ -6,6 +6,7 @@ import { windowWhen } from 'rxjs/operator/windowWhen';
 
 const restaurantStyle = {
     border: '1px solid black',
+    backgroundColor: 'lightgrey',
     width: '70vw',
     height: '70vh',
     padding: '2rem'

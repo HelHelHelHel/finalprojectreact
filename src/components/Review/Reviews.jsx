@@ -9,6 +9,7 @@ const reviews1 = [
         id: 1,
         rating: 5,
         text: 'This is the best fucking burger EVER'
+        
     },
     {
         id: 2,
@@ -44,7 +45,7 @@ const Reviews = props => {
         className: 'center',
         centerMode: true,
         centerPadding: '60px',
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 1,

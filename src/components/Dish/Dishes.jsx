@@ -29,7 +29,7 @@ const Dishes = props => {
     centerMode: true,
     centerPadding: '20px',
     arrows: true,
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
