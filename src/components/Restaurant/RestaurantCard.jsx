@@ -1,7 +1,25 @@
 import React, { useState, useEffect } from 'react'
 
 import DishCard from '../Dish/DishCard.jsx'
-import DishSlider from '../Dish/DishesSlider.jsx';
+import Dishes from '../Dish/Dishes.jsx';
+import { windowWhen } from 'rxjs/operator/windowWhen';
+
+const restaurantStyle = {
+    border: '1px solid black',
+    width: '70vw',
+    height: '70vh',
+    padding: '2rem'
+}
+
+const restaurants1 = [
+    {
+        id: 1,
+        name: 'Burger Queen',
+        address: '1236 1300th Street',
+        phone: '+1 712 579 5715',
+        website_url: 'www.restaurant.com/'
+    }
+]
 
 const RestaurantCard = props => {
     const [restaurants, setRestaurants] = useState();
@@ -12,32 +30,28 @@ const RestaurantCard = props => {
             const data = await response.json();
             setRestaurants (data);
         }
-            fetchRestaurants();
+            // fetchRestaurants();
     },[]);
 
     
     return (
         <>
            {
-               restaurants && 
-               restaurants.map((restaurant, key) => (
-                   <div key={key} className="card">
-                       <div className="card-header">
-                           <p className="font-weight-bold">
-                               {restaurant.name}
+               restaurants1 && 
+               restaurants1.map((restaurant, key) => (
+                   <div key={key} style={restaurantStyle}>
+                       <div>
+                           <p>
+                               <strong>{restaurant.name}</strong>
                            </p>
                            <p>
-                               {restaurant.address} 
-                           </p>
-                           <p>
-                               {restaurant.phone}
-                           </p>
-                           <p>
+                               {restaurant.address} <br/>
+                               {restaurant.phone} <br/>
                                {restaurant.website_url}
                            </p>
                        </div>
-                       <div className="card-body">
-                           <DishSlider id={restaurant.id}/>
+                       <div>
+                           <Dishes id={restaurant.id}/>
                        </div>
                    </div>
                ))

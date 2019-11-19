@@ -1,45 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+
+const reviewsStyle = {
+    border: '1px solid black',
+    padding: '1rem',
+    marginLeft: '0.5rem',
+    marginRight: '0.5rem',
+    marginBottom: '2rem',
+
+}
 
 const ReviewCard = props => {
-    const [reviews, setReviews] = useState()
-
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('http://www.eatanywhere.test:8080/api/reviews/'+props.id);
-            const data = await response.json();
-            // console.log(data);
-            setReviews(data);
-        }
-
-        fetchData();
-    }, [])
-
-    useEffect(() => {
-        console.log(reviews)
-    }, [reviews])
-
     return (
-        <div className="row">
-            {   
-                reviews &&
-                reviews.map((review, key) => (
-                    <div key={key} className="card col-md-4">
-                        <div>
-                            <p>
-                               Rating: { review.rating }
-                            </p>
-                            <p>
-                               Review:
-                            </p>
-                            <p>
-                                { review.text }
-                            </p>
-                            
-                        </div>
-                    </div>
-                ))
-            }
-        </div>
+        <>
+            <div style={reviewsStyle} key={props.key} >
+                <p>
+                    Rating: { props.review.rating }
+                </p>
+                <p>
+                    Review:
+                </p>
+                <p>
+                    { props.review.text }
+                </p>
+            </div>
+        </>
     )
 }
 

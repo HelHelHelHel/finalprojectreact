@@ -1,47 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Reviews from '../Review/Reviews.jsx'
 
-import ReviewCard from '../Review/ReviewCard.jsx'
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
+const dishesStyle = {
+    border: '1px solid black',
+    padding: '1rem',
+    marginBottom: '1rem',
+    height: '50vh',
+    width: '50vw'
+}
 
 const DishCard = props => {
-    const [dishes, setDishes] = useState()
-
-    useEffect(() => {
-        async function fetchDishes(){
-            const response = await fetch ('http://www.eatanywhere.test:8080/api/dishes/'+props.id);
-            const data = await response.json();
-            setDishes(data);
-        }
-        fetchDishes();
-    }, [])
-
-
     return (
-        <div className="row">
-            {
-                dishes &&
-                dishes.map((dish, key)=> (
-                    <div key={key}>
-                        <div>
-                            <p>
-                                {dish.name}
-                            </p>
-                            <p>
-                                {dish.description}
-                            </p>
-                        </div>
-                        <div>
-                            <ReviewCard 
-                            id={dish.id} 
-                            />
-                        </div>
-                    </div>
-                ))
-            }  
-        </div>
+        <>
+            <div key={props.key} style={dishesStyle}>
+                <div>
+                    <h3 style={{margin: '0'}}>{props.dish.name}</h3> <br/>
+                    <p>{props.dish.description}</p>
+                </div>
+                <Reviews 
+                    id={props.dish.id} 
+                />
+            </div>
+        </>
     )
 }
 

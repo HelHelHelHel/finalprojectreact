@@ -1,4 +1,6 @@
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const historyApiFallback = require('connect-history-api-fallback')
+
 const path = require('path');
 
 module.exports = {
@@ -85,6 +87,7 @@ module.exports = {
         server: { 
             baseDir: ['dist'] 
         },
+        middleware: [ historyApiFallback() ]
         // proxy: {
         //     target: 'http://www.example.com/',
         // },

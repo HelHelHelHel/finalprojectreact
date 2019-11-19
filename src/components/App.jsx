@@ -6,19 +6,28 @@ import RestaurantCard from './Restaurant/RestaurantCard.jsx';
 import {Router, Route, Switch, Redirect} from "react-router-dom";
 import history from "../history";
 import Nav from "./Nav/Nav.jsx";
+import Sidebar from './Sidebar/Sidebar.jsx'
 
+const appStyle = {
+    display: 'flex'
+}
 
 const App = () =>  {
         return (
-           <div className="homepage">
+           <>
                <Router history={history}>
-                    <Nav/>
-                    <Switch>
-                            <Route path = '/map' component={MapContainer} />
-                            <Route path = '/restaurants' component={RestaurantCard} />
-                    </Switch>
+                    <div>
+                        <Nav/>
+                        <div style={appStyle}> 
+                            <Sidebar />
+                            <Switch>
+                                    <Route path = '/map' component={MapContainer} />
+                                    <Route path = '/restaurants' component={RestaurantCard} />
+                            </Switch>
+                        </div>
+                    </div>
                 </Router>
-            </div>
+            </>
         )
 }
 

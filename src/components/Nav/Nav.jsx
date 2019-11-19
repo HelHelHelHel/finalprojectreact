@@ -1,12 +1,30 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-const Nav = props=> {
+const headerStyle = {
+    display: 'flex',
+    flexDirection: 'row nowrap',
+    justifyContent: 'space-between'
+}
+
+const navStyle = {
+    display: 'flex',
+    flexDirection: 'row nowrap',
+}
+
+const linkStyle = {
+    marginRight: '0.5rem'
+}
+
+const Nav = props => {
     return (
-        <div style = {{display: "flex", flexDirection: "row nowrap"}}>
-            <Link to ='/map'><h4>Map</h4></Link>
-            <Link to ='/profile'><h4>Profile</h4></Link>
-            <Link to ='/restaurants'><h4>Restaurants</h4></Link>
+        <div style={headerStyle}>
+            <h2 style={{ marginLeft: '1rem'}} >eatAnywhere</h2>
+            <div style={navStyle} >
+                <Link style={linkStyle} to ='/map'><h4>Map</h4></Link>
+                <Link style={linkStyle} to ='/restaurants'><h4>Restaurants</h4></Link>
+                <Link style={linkStyle} to ='/profile'><h4>Profile</h4></Link>
+            </div>
         </div>
     )
 }
