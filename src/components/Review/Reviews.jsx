@@ -40,11 +40,11 @@ const reviews1 = [
   ]
 
 const Reviews = props => {
-    const [reviews, setReviews] = useState();
+    // const [reviews, setReviews] = useState();
     const settings = {
         className: 'center',
         centerMode: true,
-        centerPadding: '60px',
+        centerPadding: '10px',
         dots: false,
         infinite: true,
         speed: 500,
@@ -52,22 +52,26 @@ const Reviews = props => {
         slidesToScroll: 1
     };
 
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('http://www.eatanywhere.test:8080/api/reviews/'+props.id);
-            const data = await response.json();
-            console.log(data);
-            setReviews(data);
-        }
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         const response = await fetch('http://www.eatanywhere.test:8080/api/reviews/'+props.id, {
+    //             headers: {
+    //                 'Accept': 'application/json'
+    //             }
+    //         });
+    //         const data = await response.json();
+    //         console.log(data);
+    //         setReviews(data);
+    //     }
 
-        // fetchData();
-    }, []);
+    //     fetchData();
+    // }, []);
 
     return (
         <Slider {...settings}>
             {   
-                reviews1 &&
-                reviews1.map((review, key) => (
+                props.reviews &&
+                props.reviews.map((review, key) => (
                     <ReviewCard 
                         key={key}
                         review={review}

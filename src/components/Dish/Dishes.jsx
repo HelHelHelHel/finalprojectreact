@@ -23,11 +23,11 @@ const dishes1 = [
 ]
 
 const Dishes = props => {
-  const [dishes, setDishes] = useState();
+  // const [dishes, setDishes] = useState();
   const settings = {
     className: 'center',
     centerMode: true,
-    centerPadding: '20px',
+    centerPadding: '10px',
     arrows: true,
     dots: false,
     infinite: true,
@@ -36,29 +36,35 @@ const Dishes = props => {
     slidesToScroll: 1
   };
 
-    useEffect(() => {
-        async function fetchDishes(){
-            const response = await fetch ('http://www.eatanywhere.test:8080/api/dishes/'+props.id);
-            const data = await response.json();
-            setDishes(data);
-        }
-        // fetchDishes();
-    }, [])
+    // useEffect(() => {
+    //     async function fetchDishes(){
+    //         const response = await fetch ('http://www.eatanywhere.test:8080/api/dishes/'+props.id, {
+    //           headers: {
+    //               'Accept': 'application/json'
+    //           }
+    //       });
+    //         const data = await response.json();
+    //         setDishes(data);
+    //     }
+    //     fetchDishes();
+    // }, [])
 
   
 
   return (
-    <Slider {...settings}>
-      { 
-        dishes1 &&
-        dishes1.map((dish, key) => (
-          <DishCard 
-            key={key}
-            dish={dish}
-          />
-        ))
-      }
-    </Slider>
+    <>
+      <Slider {...settings}>
+        { 
+          props.dishes &&
+          props.dishes.map((dish, key) => (
+            <DishCard 
+              key={key}
+              dish={dish}
+            />
+          ))
+        }
+      </Slider>
+    </>
   );
 
 }

@@ -5,11 +5,23 @@ import Dishes from '../Dish/Dishes.jsx';
 import { windowWhen } from 'rxjs/operator/windowWhen';
 
 const restaurantStyle = {
-    border: '1px solid black',
+    // border: '1px solid black',
     backgroundColor: 'lightgrey',
-    width: '70vw',
-    height: '70vh',
-    padding: '2rem'
+    margin: '0 auto 1rem',
+    width: '88%',
+    height: '85%',
+    paddingTop: '1rem',
+    paddingBottom: '2rem',
+    fontSize: '12px',
+}
+
+const restaurantContainerStyle = {
+    marginBottom: '1rem',
+}
+
+const infoStyle = {
+    fontSize: '16px',
+    margin: 0
 }
 
 const restaurants1 = [
@@ -27,38 +39,42 @@ const RestaurantCard = props => {
 
     useEffect(()=> {
         async function fetchRestaurants(){
-            const response = await fetch('http://www.eatanywhere.test:8080/api/restaurants');
+            const response = await fetch('http://www.eatanywhere.test:8080/api/restaurants', {
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
             const data = await response.json();
             setRestaurants (data);
         }
-            // fetchRestaurants();
+            fetchRestaurants();
     },[]);
 
     
     return (
-        <>
+        <div style={{width: '44vw', overflow: 'scroll'}}>
            {
-               restaurants1 && 
-               restaurants1.map((restaurant, key) => (
+               restaurants && 
+               restaurants.map((restaurant, key) => (
                    <div key={key} style={restaurantStyle}>
-                       <div>
-                           <p>
+                       <div style={restaurantContainerStyle}>
+                           <p style={infoStyle}>
                                <strong>{restaurant.name}</strong>
                            </p>
-                           <p>
+                           {/* <p>
                                {restaurant.address} <br/>
                                {restaurant.phone} <br/>
                                {restaurant.website_url}
-                           </p>
+                           </p> */}
                        </div>
                        <div>
-                           <Dishes id={restaurant.id}/>
+                           <Dishes dishes={restaurant.dishes}/>
                        </div>
                    </div>
                ))
            
             }
-        </>
+        </div>
     )
 }
 

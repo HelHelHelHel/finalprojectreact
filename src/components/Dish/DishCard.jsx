@@ -2,23 +2,29 @@ import React from 'react';
 import Reviews from '../Review/Reviews.jsx'
 
 const dishesStyle = {
-    border: '1px solid black',
-    padding: '1rem',
-    marginBottom: '1rem',
-    height: '50vh',
-    width: '50vw'
+    // border: '1px solid black',
+    backgroundColor: 'lightblue',
+    padding: '1rem 2rem 1rem 2rem',
+    height: '70%',
+    width: '79%',
+    margin: '0 auto 1rem',
+    borderRadius: '10px',
+}
+
+const dishInfoStyle = {
+    marginBottom: '2rem',
 }
 
 const DishCard = props => {
     return (
         <>
             <div key={props.key} style={dishesStyle}>
-                <div>
-                    <h3 style={{margin: '0'}}>{props.dish.name}</h3> <br/>
-                    <p>{props.dish.description}</p>
+                <div style={dishInfoStyle}>
+                    <h3 style={{margin: '0'}}>{props.dish.name}</h3>
+                    {/* {props.dish.description} */}
                 </div>
                 <Reviews 
-                    id={props.dish.id} 
+                    reviews={props.dish.reviews} 
                 />
             </div>
         </>

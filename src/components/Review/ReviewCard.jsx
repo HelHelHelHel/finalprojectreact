@@ -1,27 +1,26 @@
 import React from 'react';
 
 const reviewsStyle = {
-    border: '1px solid black',
+    // border: '1px solid black',
+    borderRadius: '10px',
+    backgroundColor: 'lightgrey',
+    width: '85%',
+    height: '65%',
     padding: '1rem',
-    marginLeft: '0.5rem',
-    marginRight: '0.5rem',
-    marginBottom: '2rem',
+    margin: '0 auto 1rem'
 
 }
 
 const ReviewCard = props => {
     return (
         <>
-            <div style={reviewsStyle} key={props.key} >
-                <p>
-                    Rating: { props.review.rating }
-                </p>
-                <p>
-                    Review:
-                </p>
-                <p>
-                    { props.review.text }
-                </p>
+            <div>
+                <img src={ "http://www.eatAnywhere.test:8080"+props.review.image.path } alt=""/>
+                <div style={reviewsStyle} key={ props.key } >
+                        Rating: { props.review.rating } <br/>
+                        Review: <br/>
+                        { props.review.text }
+                </div>
             </div>
         </>
     )
