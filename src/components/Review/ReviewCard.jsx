@@ -15,7 +15,7 @@ const ReviewCard = props => {
     return (
         <>
             <div>
-                <img src={ "http://www.eatAnywhere.test:8080"+props.review.image.path } alt=""/>
+                <img src="../../img/avocado_blueberry_walnut_salad.jpg" alt=""/>
                 <div style={reviewsStyle} key={ props.key } >
                         Rating: { props.review.rating } <br/>
                         Review: <br/>
